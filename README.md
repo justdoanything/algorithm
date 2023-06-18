@@ -6,11 +6,30 @@
   ```
 
 - ### 기본
-  - String.charAt
+  - String <-> ASCII
   ```java
-	(int)input.charAt(0);   // 아스키코드
-    input.charAt(0) >= 'a' && input.charAt(0) <= 'z'
-    input.charAt(0) >= 'A' && input.charAt(0) <= 'Z'
+  // String -> ASCII
+  String str = "A";
+  input.charAt(0);          // A
+  (int) input.charAt(0);    // 65
+  
+  // ASCII -> String
+  int ascii = 65;
+  String asciiStr = String.valueOf((char) strInt);  // A
+  
+  // 대소문자 범위
+  // a: 97, z: 122, A: 65, Z: 90
+  input.charAt(0) >= 'a' && input.charAt(0) <= 'z'
+  input.charAt(0) >= 'A' && input.charAt(0) <= 'Z'
+  
+  // 영어 좌표 👉 숫자 좌표
+  String posEng = "d4";
+  int posEngX = posEng.charAt(0)-'a';  // 3
+  int posEngY = posEng.charAt(1)-'0';  // 4
+  
+  // (String 숫자).charAt(0) - '0' ==> int 숫자
+  // (String 소문자).charAt(0) - 'a' ==> int 숫자 (알파벳 순서)
+  // (String 대문자).charAt(0) - 'A' ==> int 숫자 (알파벳 순서)
   ```
   - `Math`
   ```java
@@ -41,12 +60,6 @@
     int root = (int)Math.sqrt((double) value);
     return IntStream.rangeClosed(2, root).noneMatch(i -> value % i == 0);
   }
-  ```
-  - 영어 좌표 👉 숫자 좌표
-  ```java
-  String posEng = "d4";
-  int posEngX = posEng.charAt(0)-'a';  // 3
-  int posEngY = posEng.charAt(1)-'0';  // 4
   ```
 
   - 4방향, 8방향 탐색
